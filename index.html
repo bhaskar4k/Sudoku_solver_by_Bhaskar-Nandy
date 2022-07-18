@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5cd4730d1a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image" href="./Title Icon.png">
+    <title>Sudoku Solver By Bhaskar Nandy</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="sudoku-board">
+            <div class="box-of-sudoku">
+                <div class="grid-container">
+                    <div class="grid-item a00" id="a00"></div>
+                    <div class="grid-item a01" id="a01"></div>
+                    <div class="grid-item item-space-row a02" id="a02"></div>
+                    <div class="grid-item a03" id="a03"></div>
+                    <div class="grid-item a04" id="a04"></div>
+                    <div class="grid-item item-space-row a05" id="a05"></div>
+                    <div class="grid-item a06" id="a06"></div>
+                    <div class="grid-item a07" id="a07"></div>
+                    <div class="grid-item a08" id="a08"></div>
+                    <div class="grid-item a10" id="a10"></div>
+                    <div class="grid-item a11" id="a11"></div>
+                    <div class="grid-item a12" id="a12"></div>
+                    <div class="grid-item a13" id="a13"></div>
+                    <div class="grid-item a14" id="a14"></div>
+                    <div class="grid-item a15" id="a15"></div>
+                    <div class="grid-item a16" id="a16"></div>
+                    <div class="grid-item a17" id="a17"></div>
+                    <div class="grid-item a18" id="a18"></div>
+                    <div class="grid-item a20" id="a20"></div>
+                    <div class="grid-item a21" id="a21"></div>
+                    <div class="grid-item item-space-col a22" id="a22"></div>
+                    <div class="grid-item a23" id="a23"></div>
+                    <div class="grid-item a24" id="a24"></div>
+                    <div class="grid-item a25" id="a25"></div>
+                    <div class="grid-item a26" id="a26"></div>
+                    <div class="grid-item a27" id="a27"></div>
+                    <div class="grid-item a28" id="a28"></div>
+                    <div class="grid-item a30" id="a30"></div>
+                    <div class="grid-item a31" id="a31"></div>
+                    <div class="grid-item a32" id="a32"></div>
+                    <div class="grid-item a33" id="a33"></div>
+                    <div class="grid-item a34" id="a34"></div>
+                    <div class="grid-item a35" id="a35"></div>
+                    <div class="grid-item a36" id="a36"></div>
+                    <div class="grid-item a37" id="a37"></div>
+                    <div class="grid-item a38" id="a38"></div>
+                    <div class="grid-item a40" id="a40"></div>
+                    <div class="grid-item a41" id="a41"></div>
+                    <div class="grid-item a42" id="a42"></div>
+                    <div class="grid-item a43" id="a43"></div>
+                    <div class="grid-item a44" id="a44"></div>
+                    <div class="grid-item a45" id="a45"></div>
+                    <div class="grid-item a46" id="a46"></div>
+                    <div class="grid-item a47" id="a47"></div>
+                    <div class="grid-item 48" id="a48"></div>
+                    <div class="grid-item 50" id="a50"></div>
+                    <div class="grid-item a51" id="a51"></div>
+                    <div class="grid-item a52" id="a52"></div>
+                    <div class="grid-item a53" id="a53"></div>
+                    <div class="grid-item item-space-col a54" id="a54"></div>
+                    <div class="grid-item a55" id="a55"></div>
+                    <div class="grid-item a56" id="a56"></div>
+                    <div class="grid-item a57" id="a57"></div>
+                    <div class="grid-item a58" id="a58"></div>
+                    <div class="grid-item a60" id="a60"></div>
+                    <div class="grid-item a61" id="a61"></div>
+                    <div class="grid-item a62" id="a62"></div>
+                    <div class="grid-item a63" id="a63"></div>
+                    <div class="grid-item a64" id="a64"></div>
+                    <div class="grid-item a65" id="a65"></div>
+                    <div class="grid-item a66" id="a66"></div>
+                    <div class="grid-item a67" id="a67"></div>
+                    <div class="grid-item a68" id="a68"></div>
+                    <div class="grid-item a70" id="a70"></div>
+                    <div class="grid-item a71" id="a71"></div>
+                    <div class="grid-item a72" id="a72"></div>
+                    <div class="grid-item a73" id="a73"></div>
+                    <div class="grid-item a74" id="a74"></div>
+                    <div class="grid-item a75" id="a75"></div>
+                    <div class="grid-item a76" id="a76"></div>
+                    <div class="grid-item a77" id="a77"></div>
+                    <div class="grid-item a78" id="a78"></div>
+                    <div class="grid-item a80" id="a80"></div>
+                    <div class="grid-item a81" id="a81"></div>
+                    <div class="grid-item a82" id="a82"></div>
+                    <div class="grid-item a83" id="a83"></div>
+                    <div class="grid-item a84" id="a84"></div>
+                    <div class="grid-item a85" id="a85"></div>
+                    <div class="grid-item a86" id="a86"></div>
+                    <div class="grid-item a87" id="a87"></div>
+                    <div class="grid-item a88" id="a88"></div>
+                </div>
+            </div>
+        </div>
+        <div class="control-panel">
+            <div class="heading">
+                <h1>SUDOKU SOLVER</h1>
+                <p id="msg"></p>
+                <p id="steps"></p>
+            </div>
+            <button class="btn" onClick="passValues();">Load Board</button>
+            <button class="btn" onClick="window.location.reload();">Refresh Board</button>
+        </div>
+        <div class="my-info">
+            <p>Designed & Developed By Bhaskar Nandy</p>
+        </div>
+    </div>
+
+    <script src="dsa.js"></script>
+    <script src="control.js"></script>
+</body>
+
+</html>

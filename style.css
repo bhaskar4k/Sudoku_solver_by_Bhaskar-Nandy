@@ -1,0 +1,711 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    animation: transitionIn 2s;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(14, 33, 67);
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* CONTROL SECTION */
+
+.control-panel {
+    float: left;
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 100px;
+}
+
+.heading h1 {
+    font-size: 80px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+#msg {
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+#steps {
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.btn {
+    appearance: none;
+    background-color: #FFFFFF;
+    border-radius: 40em;
+    border-style: none;
+    box-shadow: #ADCFFF 0 -12px 6px inset;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -.24px;
+    margin: 0;
+    outline: none;
+    padding: 13px 28px;
+    quotes: auto;
+    text-align: center;
+    text-decoration: none;
+    transition: all .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 15px 0;
+}
+
+.btn:hover {
+    background-color: #FFC229;
+    box-shadow: #FF6314 0 -6px 8px inset;
+    transform: scale(1.125);
+}
+
+.btn:active {
+    transform: scale(1.025);
+}
+
+/* SUDOKU BOARD */
+
+.sudoku-board {
+    float: right;
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.box-of-sudoku {
+    width: auto;
+    height: auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+}
+
+.grid-item {
+    color: white;
+    margin: 3px;
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 14px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+#a00,
+#a01,
+#a02,
+#a03,
+#a04,
+#a05,
+#a06,
+#a07,
+#a08,
+#a10,
+#a11,
+#a12,
+#a13,
+#a14,
+#a15,
+#a16,
+#a17,
+#a18,
+#a20,
+#a21,
+#a22,
+#a23,
+#a24,
+#a25,
+#a26,
+#a27,
+#a28,
+#a30,
+#a31,
+#a32,
+#a33,
+#a34,
+#a35,
+#a36,
+#a37,
+#a38,
+#a40,
+#a41,
+#a42,
+#a43,
+#a44,
+#a45,
+#a46,
+#a47,
+#a48,
+#a50,
+#a51,
+#a52,
+#a53,
+#a54,
+#a55,
+#a56,
+#a57,
+#a58,
+#a60,
+#a61,
+#a62,
+#a63,
+#a64,
+#a65,
+#a66,
+#a67,
+#a68,
+#a70,
+#a71,
+#a72,
+#a73,
+#a74,
+#a75,
+#a76,
+#a77,
+#a78,
+#a80,
+#a81,
+#a82,
+#a83,
+#a84,
+#a85,
+#a86,
+#a87,
+#a88 {
+    background-color: rgb(94, 96, 109);
+    transition: all 0.6s ease-in-out;
+}
+
+.grid-item:hover {
+    border: 2px solid rgb(0, 145, 255);
+    padding-top: 10px;
+}
+
+.item-space-row {
+    margin-right: 15px;
+}
+
+.item-space-col {
+    margin-bottom: 15px;
+}
+
+/* MY INFO AT BOTTOM */
+
+.my-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.my-info p {
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    padding-left: 14px;
+    padding-bottom: 10px;
+}
+
+/* RESPONSIVE WITH MEDIA QUERIES */
+
+@media (max-width: 400px) {
+    .sudoku-board {
+        float: none;
+        width: 100%;
+        height: 55vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .control-panel {
+        float: none;
+        width: 100%;
+        height: 40vh;
+        padding-left: 0px;
+    }
+
+    .my-info {
+        display: none;
+    }
+
+    .heading h1 {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 0px;
+        padding-top: 20px;
+    }
+
+    #msg {
+        font-size: 20px;
+        font-weight: 600;
+        padding-top: 16px;
+    }
+
+    #steps {
+        font-size: 15px;
+        font-weight: 600;
+        padding-top: 10px;
+        padding-bottom: 16px;
+    }
+
+    .btn {
+        font-size: 20px;
+    }
+
+    .grid-item {
+        color: white;
+        margin: 3px;
+        width: 31px;
+        height: 31px;
+        font-size: 18px;
+        font-weight: 600;
+        padding-top: 5px;
+        border-radius: 5px;
+    }
+
+    .item-space-row {
+        margin-right: 8px;
+    }
+
+    .item-space-col {
+        margin-bottom: 8px;
+    }
+}
+
+@media(min-width: 401px) and (max-width: 600px) {
+    .sudoku-board {
+        float: none;
+        width: 100%;
+        height: 55vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .control-panel {
+        float: none;
+        width: 100%;
+        height: 40vh;
+        padding-left: 0px;
+    }
+
+    .my-info {
+        display: none;
+    }
+
+    .heading h1 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 0px;
+    }
+
+    #msg {
+        font-size: 25px;
+        font-weight: 600;
+        padding-top: 10px;
+    }
+
+    #steps {
+        font-size: 20px;
+        font-weight: 600;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .btn {
+        font-size: 23px;
+    }
+
+    .grid-item {
+        color: white;
+        margin: 3px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        font-weight: 600;
+        padding-top: 5px;
+        border-radius: 5px;
+    }
+
+    .item-space-row {
+        margin-right: 8px;
+    }
+
+    .item-space-col {
+        margin-bottom: 8px;
+    }
+}
+
+@media(min-width: 601px) and (max-width: 768px) {
+    .sudoku-board {
+        float: none;
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .control-panel {
+        float: none;
+        width: 100%;
+        height: 40vh;
+        padding-left: 0px;
+    }
+
+    .my-info {
+        display: none;
+    }
+
+    .heading h1 {
+        font-size: 60px;
+        font-weight: 700;
+        margin-bottom: 0px;
+    }
+
+    #msg {
+        font-size: 30px;
+        font-weight: 600;
+        padding-top: 16px;
+    }
+
+    #steps {
+        font-size: 25px;
+        font-weight: 600;
+        padding-top: 10px;
+        padding-bottom: 16px;
+    }
+
+    .btn {
+        font-size: 30px;
+    }
+
+    .grid-item {
+        color: white;
+        margin: 3px;
+        width: 53px;
+        height: 53px;
+        font-size: 25px;
+        font-weight: 600;
+        padding-top: 10px;
+        border-radius: 5px;
+    }
+
+    .item-space-row {
+        margin-right: 13px;
+    }
+
+    .item-space-col {
+        margin-bottom: 13px;
+    }
+}
+
+@media(min-width: 769px) and (max-width: 900px) {
+    .sudoku-board {
+        float: none;
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .control-panel {
+        float: none;
+        width: 100%;
+        height: 40vh;
+        padding-left: 0px;
+    }
+
+    .my-info {
+        display: none;
+    }
+
+    .heading h1 {
+        font-size: 60px;
+        font-weight: 700;
+        margin-bottom: 0px;
+    }
+
+    #msg {
+        font-size: 30px;
+        font-weight: 600;
+        padding-top: 16px;
+    }
+
+    #steps {
+        font-size: 25px;
+        font-weight: 600;
+        padding-top: 10px;
+        padding-bottom: 16px;
+    }
+
+    .btn {
+        font-size: 35px;
+    }
+
+    .grid-item {
+        color: white;
+        margin: 3px;
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        font-weight: 600;
+        padding-top: 12px;
+        border-radius: 5px;
+    }
+
+    .item-space-row {
+        margin-right: 15px;
+    }
+
+    .item-space-col {
+        margin-bottom: 15px;
+    }
+}
+
+@media(min-width: 901px) and (max-width: 1024px) {
+    .sudoku-board {
+        float: none;
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .control-panel {
+        float: none;
+        width: 100%;
+        height: 40vh;
+        padding-left: 0px;
+    }
+
+    .my-info {
+        display: none;
+    }
+
+    .heading h1 {
+        font-size: 70px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    #msg {
+        font-size: 35px;
+        font-weight: 600;
+        padding-top: 16px;
+    }
+
+    #steps {
+        font-size: 30px;
+        font-weight: 600;
+        padding-top: 10px;
+        padding-bottom: 35px;
+    }
+
+    .btn {
+        font-size: 40px;
+    }
+
+    .grid-item {
+        color: white;
+        margin: 3px;
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+        font-weight: 600;
+        padding-top: 12px;
+        border-radius: 5px;
+    }
+
+    .item-space-row {
+        margin-right: 16px;
+    }
+
+    .item-space-col {
+        margin-bottom: 16px;
+    }
+}
+
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+    .sudoku-board {
+        float: right;
+        width: 70%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .control-panel {
+        float: left;
+        width: 30%;
+        height: 100vh;
+        padding-left: 40px;
+    }
+
+    .my-info {
+        display: none;
+    }
+
+    .heading h1 {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 0px;
+        padding-top: 20px;
+    }
+
+    #msg {
+        font-size: 20px;
+        font-weight: 600;
+        padding-top: 16px;
+        color: white;
+    }
+
+    #steps {
+        font-size: 15px;
+        font-weight: 600;
+        padding-top: 10px;
+        padding-bottom: 16px;
+        color: white;
+    }
+
+    .btn {
+        font-size: 15px;
+    }
+
+    .grid-item {
+        color: white;
+        margin: 3px;
+        width: 31px;
+        height: 31px;
+        font-size: 18px;
+        font-weight: 600;
+        padding-top: 5px;
+        border-radius: 5px;
+    }
+
+    .item-space-row {
+        margin-right: 8px;
+    }
+
+    .item-space-col {
+        margin-bottom: 8px;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1200px) and (orientation: landscape) {
+    .sudoku-board {
+        float: right;
+        width: 70%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .control-panel {
+        float: left;
+        width: 30%;
+        height: 100vh;
+        padding-left: 40px;
+    }
+
+    .my-info {
+        display: none;
+    }
+
+    .heading h1 {
+        font-size: 60px;
+        font-weight: 700;
+        margin-bottom: 0px;
+        padding-top: 20px;
+    }
+
+    #msg {
+        font-size: 30px;
+        font-weight: 600;
+        padding-top: 16px;
+    }
+
+    #steps {
+        font-size: 25px;
+        font-weight: 600;
+        padding-top: 10px;
+        padding-bottom: 16px;
+    }
+
+    .btn {
+        font-size: 25px;
+    }
+
+    .grid-item {
+        color: white;
+        margin: 3px;
+        width: 65px;
+        height: 65px;
+        font-size: 35px;
+        font-weight: 600;
+        padding-top: 10px;
+        border-radius: 5px;
+    }
+
+    .item-space-row {
+        margin-right: 8px;
+    }
+
+    .item-space-col {
+        margin-bottom: 8px;
+    }
+}
